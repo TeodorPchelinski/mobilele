@@ -4,14 +4,18 @@ import com.example.mobilele.model.dto.UserRegistrationDTO;
 import com.example.mobilele.model.entity.UserEntity;
 import com.example.mobilele.repository.UserRepository;
 import com.example.mobilele.service.UserService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
-    public UserServiceImpl(UserRepository userRepository){
+
+    private final PasswordEncoder passwordEncoder;
+    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder){
         this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -21,12 +25,12 @@ public class UserServiceImpl implements UserService {
         userRepository.save(map(userRegistrationDTO));
     }
 
-    private static UserEntity map(UserRegistrationDTO userRegistrationDTO){
+    private UserEntity map(UserRegistrationDTO userRegistrationDTO){
         return new UserEntity()
                 .setActive(true)
                 .setFirstName(userRegistrationDTO.firstName())
                 .setLastName(userRegistrationDTO.lastName())
                 .setEmail(userRegistrationDTO.email())
-                .setPassword(userRegistrationDTO.password());
+                .setPassword(passwordEncoder.encode(userRegistrationDTO.password()));
     }
 }
