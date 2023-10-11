@@ -12,6 +12,7 @@ public class UserEntity extends BasedEntity{
 
     private String lastName;
 
+    @Column(unique = true)
     private String email;
 
     private String password;
@@ -31,7 +32,6 @@ public class UserEntity extends BasedEntity{
     }
 
 
-    //FIXME: void replaced with UserEntity and returning null on any other method with UserEntity set
     public UserEntity setFirstName(String firstName) {
         this.firstName = firstName;
         return this;
