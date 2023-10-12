@@ -2,9 +2,7 @@ package com.example.mobilele.model.entity;
 
 import com.example.mobilele.model.enums.EngineEnum;
 import com.example.mobilele.model.enums.TransmissionEnum;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import org.hibernate.annotations.JdbcTypeCode;
 
 import java.math.BigDecimal;
@@ -23,8 +21,10 @@ public class OfferEntity extends BasedEntity{
     @ManyToOne
     private ModelEntity model;
 
+    @Enumerated(EnumType.STRING)
     private EngineEnum engine;
 
+    @Enumerated(EnumType.STRING)
     private TransmissionEnum transmission;
 
     private String imageUrl;
