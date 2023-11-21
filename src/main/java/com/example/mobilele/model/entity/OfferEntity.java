@@ -3,6 +3,10 @@ package com.example.mobilele.model.entity;
 import com.example.mobilele.model.enums.EngineEnum;
 import com.example.mobilele.model.enums.TransmissionEnum;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import org.hibernate.annotations.JdbcTypeCode;
 
 import java.math.BigDecimal;
@@ -13,26 +17,33 @@ import java.util.UUID;
 @Entity
 @Table(name = "offers")
 public class OfferEntity extends BasedEntity{
-
+    @NotNull
     @JdbcTypeCode(Types.VARCHAR)
     private UUID uuid;
+
+    @NotEmpty
     private String description;
 
+    @NotNull
     @ManyToOne
     private ModelEntity model;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     private EngineEnum engine;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     private TransmissionEnum transmission;
 
+    @NotEmpty
     private String imageUrl;
-
+    @Positive
     private long mileage;
 
+    @NotNull
     private BigDecimal price;
-
+    @Min(1900)
     private int year;
 
 

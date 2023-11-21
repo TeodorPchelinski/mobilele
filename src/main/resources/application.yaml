@@ -7,8 +7,25 @@ spring:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/mobilele?allowPublicRetrieval=true&useSSL=false&createDatabaseIfNotExist=true&serverTimezone=UTC
-    username: 'root'
-    password: 'swear'
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:}
+
+  sql:
+    init:
+      mode: never
+
+#delete and patch requests enabled
+mvc:
+  hiddenmethod:
+    filter:
+      enable: true
+
+   # For Checking how is Hibernate working -> Fetch types and @NamedEntityGraph
+#logging:
+#  level:
+#    org.hibernate.SQL: DEBUG
+#    org.hibernate.orm.jdbc.bind: TRACE
+
 
 
 

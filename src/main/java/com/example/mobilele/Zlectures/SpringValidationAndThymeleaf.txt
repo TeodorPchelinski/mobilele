@@ -1,0 +1,35 @@
+    Validation and Thymeleaf
+
+ Model part:
+
+   @NotNull
+   @Unique
+   @Size(min=3, max=20)
+
+
+
+ Controller part:
+
+  @PostMapping("/add")
+  public String add (@Valid @ModelAttribute(" someModel ") SomeModel someModel,
+                                                        BindingResult bindingResult,
+                                                        RedirectAttributes rAtt) {
+
+
+  }
+
+
+  HTML part:
+
+    th:object="${bindingModel}"
+
+    th:field="*{name}"
+
+    th:errorclass="danger" -> when field is wrong
+
+    th:if="${#fields.hasErrors('name')}"
+
+
+  - Record and Class both of them works with Validations
+
+  Custom Validator classes:

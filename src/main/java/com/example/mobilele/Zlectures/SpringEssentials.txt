@@ -1,0 +1,18 @@
+
+        Everything new we have done in the lecture
+
+HTML:
+    name="attribute" -> for every input label
+        it will not transfer if we don't give it a name despite the id
+
+    ${T(com.example.mobilele.model.enums.EngineEnum).values()}
+        way of using a variable but can be done with ${engines} too
+
+@Controller:
+
+    @PostMapping -> creating something
+            Like post a photo
+            Filling a form with data
+
+    @GetMapping -> wants something
+            Getting to a specific URL -> going to new page
