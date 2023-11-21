@@ -1,1 +1,5 @@
- 838153bf3ff54f76ad75e5a868faf22d <- ID
+
+    DOM Manipulations (28 in Presentation)
+        When working with javascript (Javascript Client)
+                
+                let p = document.createElement('p');

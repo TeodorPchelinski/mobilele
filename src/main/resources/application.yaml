@@ -10,6 +10,7 @@ spring:
     username: ${MYSQL_USER:root}
     password: ${MYSQL_PASSWORD:}
 
+#data.sql -> importing data to database if dropped
   sql:
     init:
       mode: never
@@ -19,6 +20,17 @@ mvc:
   hiddenmethod:
     filter:
       enable: true
+
+openexchangerates:
+  schema: https
+  host: openexchangerates.org
+  path: /api/latest.json
+  app_id: ${APP_ID:}
+  symbols: EUR, BGN, USD
+  enable: false
+
+
+
 
    # For Checking how is Hibernate working -> Fetch types and @NamedEntityGraph
 #logging:
