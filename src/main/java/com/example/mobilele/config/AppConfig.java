@@ -12,7 +12,8 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 public class AppConfig {
 
-    @Bean
+
+    // Password Encoder moved to SecurityConfiguration
     public PasswordEncoder passwordEncoder() {
         // Crypting the passwords
         return Pbkdf2PasswordEncoder.defaultsForSpringSecurity_v5_8();
