@@ -22,14 +22,18 @@ public class UserLoginController {
 
     @GetMapping("users/logout")
     public String logout() {
-        userService.logoutUser();
+
 
         return "index";
     }
 
     @PostMapping("/users/login")
     public String login(UserLoginDTO userLoginDTO){
-        boolean loginSuccessful = userService.loginUser(userLoginDTO);
+
+        // TODO: Login logic is change with Spring Security -> make it look right
+        boolean loginSuccessful = false;
+
+
 
 
         return loginSuccessful ? "index" : "auth-login";

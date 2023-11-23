@@ -1,5 +1,5 @@
 
     DOM Manipulations (28 in Presentation)
         When working with javascript (Javascript Client)
-                
+
                 let p = document.createElement('p');

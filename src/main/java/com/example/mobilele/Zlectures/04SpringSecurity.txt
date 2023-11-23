@@ -1,0 +1,34 @@
+        Spring Security
+
+    Filters and Interceptors:
+        Servlet Filter = Spring Security
+
+        Request ->   Servlet Filter  -> Dispatcher Servlet  - - >  Controller
+
+    Project creation:
+    Jakarta EE -- Web application -- Tomcat
+       ^                          ^
+       |  non Spring application  |
+
+
+    Filter Chain
+       Request    - ->   Filter1  ->  Filter2   - ->    Dispatcher Servlet
+
+    Filter before sending the request
+    Filter before sending the response
+
+    Interceptors usage:
+    Downtime -> when we don't want the site to be reachable
+    Blacklist -> ban by IP address
+
+
+    Spring Security:
+        Focuses on Authentication
+               and Authorization
+
+        Authentication -> Who is logged in
+        Authorization  -> What you are allowed to do
+
+      Authentication class
+        Principal       Credentials     Authorities
+
