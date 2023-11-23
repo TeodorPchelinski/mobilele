@@ -33,10 +33,12 @@ openexchangerates:
 
 
    # For Checking how is Hibernate working -> Fetch types and @NamedEntityGraph
-#logging:
-#  level:
-#    org.hibernate.SQL: DEBUG
-#    org.hibernate.orm.jdbc.bind: TRACE
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
+    # for catching authentication problems -> CSRF token and more
+    org.springframework.security: TRACE
 
 
 

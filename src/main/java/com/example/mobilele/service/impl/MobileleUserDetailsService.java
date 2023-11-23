@@ -27,12 +27,17 @@ public class MobileleUserDetailsService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("User" + email + " was not found"));
 
     }
+
     private UserDetails map(UserEntity userEntity) {
-        return User.withUsername(userEntity.getEmail())
+
+        //Very Important -> UserDeatils = User.withUsername... return userDetails   AND NOT -> return User.withUsername... 
+
+        UserDetails userDetails = User.withUsername(userEntity.getEmail())
                 .password(userEntity.getPassword())
                 .authorities(List.of()) //TODO: add roles
                 .build();
 
+        return userDetails;
     }
 
 }
