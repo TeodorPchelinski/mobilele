@@ -30,7 +30,7 @@ public class MobileleUserDetailsService implements UserDetailsService {
 
     private UserDetails map(UserEntity userEntity) {
 
-        //Very Important -> UserDeatils = User.withUsername... return userDetails   AND NOT -> return User.withUsername... 
+        //Very Important -> UserDeatils = User.withUsername... return userDetails   AND NOT -> return User.withUsername...
 
         UserDetails userDetails = User.withUsername(userEntity.getEmail())
                 .password(userEntity.getPassword())
