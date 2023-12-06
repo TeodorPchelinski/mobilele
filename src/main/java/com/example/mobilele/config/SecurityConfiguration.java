@@ -30,7 +30,8 @@ public class SecurityConfiguration {
                         //All static resources which are situated in js, images, css are available for anyone
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                         // Allow anyone to see the home page, registration page and login
-                        .requestMatchers("/", "/users/login", "/users/register").permitAll()
+                        .requestMatchers("/", "/users/login", "/users/register", "/users/login-error").permitAll()
+                        .requestMatchers("/", "/offers/all").permitAll()
                         // All requests are authenticated
                         .anyRequest().authenticated()
         ).formLogin(
@@ -43,7 +44,7 @@ public class SecurityConfiguration {
                             .usernameParameter("email")
                             .passwordParameter("password")
                             .defaultSuccessUrl("/")
-                            .failureUrl("/users/login-error");
+                            .failureForwardUrl("/users/login-error");
                 }
 
         ).logout(

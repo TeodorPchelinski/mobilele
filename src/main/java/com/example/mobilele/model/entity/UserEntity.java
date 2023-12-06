@@ -2,6 +2,9 @@ package com.example.mobilele.model.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "users")
 public class UserEntity extends BasedEntity{
@@ -14,6 +17,9 @@ public class UserEntity extends BasedEntity{
 
     @Column(unique = true)
     private String email;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<UserRoleEntity> roles = new ArrayList<>();
 
     private String password;
     private boolean active;
@@ -65,4 +71,12 @@ public class UserEntity extends BasedEntity{
         return this;
     }
 
+    public List<UserRoleEntity> getRoles() {
+        return roles;
+    }
+
+    public UserEntity setRoles(List<UserRoleEntity> roles) {
+        this.roles = roles;
+        return this;
+    }
 }

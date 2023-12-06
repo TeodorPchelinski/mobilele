@@ -43,6 +43,6 @@ logging:
 
 
 
-#sql:
-#    init:
-#      platform: mysql
+sql:
+    init:
+      platform: mysql
