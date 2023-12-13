@@ -13,7 +13,7 @@ spring:
 #data.sql -> importing data to database if dropped
   sql:
     init:
-      mode: never
+      mode: always
 
 #delete and patch requests enabled
 mvc:
