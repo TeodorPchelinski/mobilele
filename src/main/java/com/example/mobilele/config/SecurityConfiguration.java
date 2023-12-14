@@ -1,5 +1,6 @@
 package com.example.mobilele.config;
 
+import com.example.mobilele.model.enums.UserRoleEnum;
 import com.example.mobilele.repository.UserRepository;
 import com.example.mobilele.service.impl.MobileleUserDetailsService;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
@@ -32,6 +33,7 @@ public class SecurityConfiguration {
                         // Allow anyone to see the home page, registration page and login
                         .requestMatchers("/", "/users/login", "/users/register", "/users/login-error").permitAll()
                         .requestMatchers("/", "/offers/all").permitAll()
+                        .requestMatchers("/", "/brands").hasRole(UserRoleEnum.ADMIN.name())
                         // All requests are authenticated
                         .anyRequest().authenticated()
         ).formLogin(

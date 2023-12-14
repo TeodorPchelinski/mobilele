@@ -20,7 +20,7 @@ public class UserEntity extends BasedEntity{
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
-            name = "users_user_roles",
+            name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<UserRoleEntity> roles = new ArrayList<>();

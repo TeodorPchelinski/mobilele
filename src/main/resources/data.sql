@@ -10,9 +10,9 @@ INSERT INTO offers (`id`, `description`, `engine`, `image_url`, `mileage`, `pric
 
 INSERT INTO users (`id`, `active`, `email`, `first_name`, `last_name`, `password`) VALUES (1, 1,'teodor.p4elinski@gmail.com','Teodor','Pchelinski','34576052cf755fd377dbb0aea2e616c40da19eb7c1a5ecbb1cab2de343173d11f7fc8801bc91ebf359fc638caeed4771'),(2,_binary '','teodor.pchelinski@abv.bg','Teodor','Pchelinski','672715a624842c1da5a4af1de83942c41498c89b8b748c6c485b898d7f84d01194dc471f02d82ce0f48aa2b533edf4c6'),(3,_binary '','','','','428dee9c823a53a1004eca8fc315997f84a72cefde90603316dcbdcf940b6c04cca3a4c7e47ab208874a6eb0e79aa18d');
 
-INSERT INTO user_roles (`id`, `role`) VALUES (1,'ADMIN'), (2, 'USER');
+INSERT INTO roles (`id`, `role`) VALUES (1,'ADMIN'), (2, 'USER');
 
-INSERT INTO users_user_roles (`user_id`, `role_id`) VALUES (1,1), (1,2),(2,1);
+INSERT INTO users_roles (`user_id`, `role_id`) VALUES (1,1), (1,2),(2,2);
 
 INSERT INTO exchange_rates (`currency`,`rate`) VALUES ('BGN', 1.00), ('EUR', 0.51), ('USD', 0.56);
 -- Dump completed on 2023-11-21  8:02:19
